@@ -29,6 +29,10 @@ object ApiCallService {
         .create(ApiCall::class.java)
 
     fun call() =
-        api.callGet()
-
+//        api.callGet()
+        //api.callQuery(hashMapOf(Pair("name", "James"), Pair("age", "25"), Pair("city", "Brooklyn")))
+//        api.callPost(User("John", "password"))
+//        api.callFormData("James", "Bond")
+//        api.callFormData(hashMapOf(Pair("firstName", "James"), Pair("lastName", "Bond"), Pair("City", "Brooklyn")))
+        api.callHeader(hashMapOf(Pair("user_name", "John"), Pair("last_name", "Winchester"), Pair("TV", "Supernatural")))
 }
