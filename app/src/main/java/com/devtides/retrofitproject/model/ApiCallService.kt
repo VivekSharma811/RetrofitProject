@@ -4,6 +4,7 @@ import com.devtides.retrofitproject.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import kotlin.math.log
 
@@ -27,6 +28,16 @@ object ApiCallService {
         .client(okhttp3Client.build())
         .build()
         .create(ApiCall::class.java)
+
+    private fun getApiRx() =
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build()
+            .create(ApiCall::class.java)
+
+    fun callRx() = getApiRx()
 
     fun call() =
 //        api.callGet()

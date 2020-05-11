@@ -19,7 +19,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel.fetchData()
+//        viewModel.fetchData()
+        viewModel.fetchDataRx()
 
         items_list.apply {
             layoutManager = LinearLayoutManager(context)
